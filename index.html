@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101a20" />
+  <title>Mosslight Online — The Verdant Reach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Mosslight Online side-scrolling game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Mosslight Online home"><span class="brand-mark">✦</span><span>MOSSLIGHT<span class="brand-sub">ONLINE</span></span></a>
+      <div class="realm"><span class="live-dot"></span><span>THE VERDANT REACH</span><i>•</i><span>CHANNEL 01</span></div>
+      <button class="icon-button sound-toggle" id="soundBtn" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="player-card hud-panel">
+      <div class="avatar">🛡️</div>
+      <div class="player-info"><div class="player-name">Alder <span class="level-pill">LV. 4</span></div><div class="class-line">WANDERER <span>•</span> <span id="coinText">◈ 128</span></div>
+        <div class="meter-label"><span>VITALITY</span><span id="hpText">100 / 100</span></div><div class="meter hp"><i id="hpFill"></i></div>
+        <div class="meter-label xp-label"><span>EXPERIENCE</span><span id="xpText">320 / 500</span></div><div class="meter xp"><i id="xpFill"></i></div>
+      </div>
+    </section>
+    <section class="quest-card hud-panel">
+      <div class="quest-heading"><span class="quest-icon">✧</span><div><small>WILLOWBROOK • REQUEST</small><h2>A little less slime</h2></div><button id="questCollapse" aria-label="Collapse quest">−</button></div>
+      <p>Clear the path for the village by thinning the moss slime population.</p>
+      <div class="quest-progress"><span id="questCount">0 / 5</span><span>MOSS SLIMES</span></div><div class="quest-track"><i id="questFill"></i></div>
+      <div class="quest-reward">REWARD <b>✦ 240 XP</b><b>◈ 80</b></div>
+    </section>
+    <section class="map-card hud-panel"><div class="map-head"><span>VERDANT REACH</span><span class="map-coords" id="coords">X 042</span></div><canvas id="minimap" width="190" height="54"></canvas><div class="map-foot"><span>☀ CLEAR SKIES</span><span><i class="live-dot"></i> 12 ONLINE</span></div></section>
+    <aside class="party-pill hud-panel"><span class="party-avatar">✿</span><span><b>Nearby travelers</b><small>3 adventurers in this area</small></span><span class="chevron">›</span></aside>
+    <section class="chatbox hud-panel" id="chatbox"><div class="chat-title"><span>WORLD CHAT</span><button id="chatToggle">−</button></div><div class="chat-lines" id="chatLines"><p><b class="system">SYSTEM</b> Welcome to the Verdant Reach!</p><p><b class="wanderer">Fernwhistle</b> Anyone know where the old shrine is?</p><p><b class="you">Alder</b> Just following the trail ✦</p></div><form id="chatForm"><span>↳</span><input id="chatInput" maxlength="90" placeholder="Say something..." autocomplete="off" /><button aria-label="Send message">↗</button></form></section>
+    <div class="location-toast" id="locationToast"><span>✦</span><div><b>WILLOWBROOK MEADOWS</b><small>A quiet corner of the Verdant Reach</small></div></div>
+    <div class="interaction" id="interaction"><span>F</span> TALK TO MIRA</div>
+    <div class="controls-hint"><span><kbd>A</kbd><kbd>D</kbd> MOVE</span><span><kbd>SPACE</kbd> JUMP</span><span><kbd>J</kbd> ATTACK</span><span><kbd>F</kbd> INTERACT</span></div>
+    <div class="combat-flash" id="combatFlash"></div>
+    <div class="mobile-controls" aria-label="Touch controls"><div class="move-pad"><button data-key="a" aria-label="Move left">◀</button><button data-key="d" aria-label="Move right">▶</button></div><div class="action-pad"><button data-key="j" class="attack-touch">⚔</button><button data-key=" " class="jump-touch">↑</button></div></div>
+    <div class="modal-backdrop" id="modalBackdrop"><div class="dialog-card"><button class="dialog-close" id="closeDialog">×</button><div class="dialog-person">🌼</div><div class="dialog-kicker">MIRA • WILLOWBROOK GUIDE</div><h2 id="dialogTitle">The trail needs you.</h2><p id="dialogText">Moss slimes have been crowding the bridge again. Could you clear out five of them? The path will be safer for everyone.</p><div class="dialog-actions"><button class="primary-button" id="dialogAction">I’ll help out <span>↗</span></button><button class="quiet-button" id="dialogDismiss">Maybe later</button></div></div></div>
+    <div class="toast" id="toast"></div>
+    <div class="start-overlay" id="startOverlay"><div class="start-card"><div class="start-sparkle">✦</div><div class="start-kicker">A LITTLE WORLD, ALL YOURS</div><h1>Find your way<br><em>through the wild.</em></h1><p>Meet the locals, take on a small quest, and see what waits beyond the meadow.</p><button id="startBtn" class="primary-button">ENTER THE REACH <span>→</span></button><small>YOUR ADVENTURE IS SAVED ON THIS DEVICE</small></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
